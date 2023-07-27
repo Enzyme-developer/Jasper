@@ -1,9 +1,11 @@
 import { cn, poppins } from "@/lib/utils";
 import {
+    Code,
   ImageIcon,
   LayoutDashboard,
   MessageCircle,
   Music,
+  Settings,
   Video,
 } from "lucide-react";
 import Image from "next/image";
@@ -16,7 +18,7 @@ const SideBar = () => {
       href: "/dashboard",
       icon: LayoutDashboard,
       label: "dashboard",
-      color: "text-gray-200",
+      color: "text-yellow-500",
     },
     {
       href: "/image",
@@ -28,7 +30,7 @@ const SideBar = () => {
       href: "/video",
       icon: Video,
       label: "Video Generation",
-      color: "text-sky-200",
+      color: "text-sky-600",
     },
     {
       href: "/music",
@@ -41,7 +43,19 @@ const SideBar = () => {
       icon: MessageCircle,
       label: "Conversation",
       color: "text-violet-500",
-    },
+      },
+      {
+        href: "/code",
+        icon: Code,
+        label: "Code Generation",
+        color: "text-blue-500",
+      },
+      {
+        href: "/settings",
+        icon: Settings,
+        label: "Settings",
+        color: "text-gray-200",
+      }
   ];
 
   return (
