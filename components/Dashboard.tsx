@@ -27,14 +27,14 @@ const Dashboard = () => {
       icon: Video,
       label: "Video Generation",
       color: "text-sky-600",
-      bgColor: "bg-sky-600/2",
+      bgColor: "bg-sky-600/10",
     },
     {
       href: "/music",
       icon: Music,
       label: "Music generation",
       color: "text-orange-400",
-      bgColor: "bg-orange-400/2",
+      bgColor: "bg-orange-400/10",
     },
     {
       href: "/conversation",
