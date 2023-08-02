@@ -28,15 +28,10 @@ const ConversationPage = () => {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      const message: ChatCompletionRequestMessage = {
-        role: "user",
-        content: values.prompt,
-      };
+      const message: ChatCompletionRequestMessage = { role: "user", content: values.prompt};
 
       const newMessages = [...messages, message];
-      const response = await axios.post("/api/conversation", {
-        messages: newMessages,
-      });
+      const response = await axios.post("/api/conversation", { messages: newMessages });
       setMessages((current) => [...current, message, response.data]);
       console.log(response);
       form.reset();
@@ -70,7 +65,7 @@ const ConversationPage = () => {
             >
               <FormField
                 control={form.control}
-                name="username"
+                name="prompt"
                 render={({ field }) => (
                   <FormItem className="col-span-12 lg:col-span-10">
                     <FormControl>
@@ -84,7 +79,7 @@ const ConversationPage = () => {
                   </FormItem>
                 )}
               />
-              <Button className="w-full col-span-12 lg:col-sapn-2">
+              <Button className="w-full col-span-12 lg:col-span-2">
                 Generate
               </Button>
             </form>
@@ -96,9 +91,9 @@ const ConversationPage = () => {
               <Loader />
             </div>
           )}
-          {messages.length == 0 && !isLoading && (
+          {/* {messages.length == 0 && !isLoading && (
             <Empty label="Jasper is processing your result" />
-          )}
+          )} */}
           <div className="flex flex-col-reverse space-y-4">
             {messages?.map((message) => (
               <div key={message.content}>{message.content}</div>

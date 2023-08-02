@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 import { Configuration, OpenAIApi } from "openai";
 
 const configuration = new Configuration({
-  apiKey: process.env.OPEN_AI_KEY,
+  apiKey: process.env.OPENAI_API_KEY,
 });
 
 const openai = new OpenAIApi(configuration);
@@ -30,10 +30,10 @@ export async function POST(req: Request) {
       model: "gpt-3.5-turbo",
       messages,
     });
-
+    console.log(response)
     return NextResponse.json(response.data.choices[0].message);
   } catch (error) {
-    console.log(error);
+    console.log('[CONVERSATION_ERROR]', error);
     return new NextResponse("internal server error", { status: 500 });
   }
 }
